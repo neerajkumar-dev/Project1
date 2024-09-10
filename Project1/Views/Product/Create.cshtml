@@ -1,0 +1,33 @@
+﻿@model Project1.Models.Table
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add a New Product</h2>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table">
+        <tr>
+            <td>Enter Product Name:</td>
+            <td>@Html.EditorFor(Model => Model.Prod_Name, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Enter Product Price:</td>
+            <td>@Html.EditorFor(Model => Model.Prod_Price, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Enter Product Quantity:</td>
+            <td>@Html.EditorFor(Model => Model.Prod_qty, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td> Choose a Product Image:</td>
+            <td> <input type="file" name="postedFile" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="Submit" value="Add Product" class="btn btn-success text-center" />
+            </td>
+        </tr>
+    </table>
+}
